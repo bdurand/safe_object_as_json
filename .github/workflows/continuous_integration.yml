@@ -66,7 +66,7 @@ jobs:
         if:   matrix.job == 'coverage'
         uses: paambaati/codeclimate-action@v2.7.5
         env:
-          CC_TEST_REPORTER_ID: TODO
+          CC_TEST_REPORTER_ID: 2c2a54a4f76a2ac5c3c8b6e26af2582d1cac4a99bf012356d5e7776188977192
         with:
           coverageCommand: bundle exec rake spec
       - name: standardrb
