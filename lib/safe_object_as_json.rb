@@ -41,7 +41,7 @@ class Object
         end
 
         values.each do |name, value|
-          unless references.include?(value.object_id)
+          unless references.include?(value.object_id) || value.is_a?(Proc) || value.is_a?(IO)
             references << value
             hash[name] = (options.nil? ? value.as_json : value.as_json(options.dup))
           end

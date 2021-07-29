@@ -3,11 +3,11 @@
 
 # Safe Object As JSON
 
-This gem provides an enhancement to the implementation for `as_json` on the core `Object` class in the ActiveSiupport library. The implementation provided by ActiveSupport just dumps the instance variables as name value pairs in a Hash. However, this is susceptible to infinite recursion when dumping an object that maintains references to other objects that then maintain back references to the original object.
-
-So, for example, a tree structure where the parent has a list of the children and each child has a reference to its parent results in a `SystemStackError` when calling as_json on any node.
+This gem provides an enhancement to the implementation for `as_json` on the core `Object` class in the ActiveSiupport library. The implementation provided by ActiveSupport dumps the instance variables as name value pairs in a Hash. However, this is susceptible to infinite recursion when dumping an object that maintains references to other objects that then maintain back references to the original object.
 
 The fix provided by this gem maintains a state of the current stack of objects being used to construct the `as_json` hash. If an object has already been referenced in the current call to `Object#as_json`, it is left out of the hash in lieu of having it raise a stack level too deep error.
+
+It also omits any `Proc` or `IO` references since these are inherently not serializable.
 
 ## Usage
 

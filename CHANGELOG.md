@@ -7,4 +7,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## 1.0.0
 
 ### Added
-- Everything!
+- Re-implement Object#as_json to omit circular dependencies in internal object references.
+- Omit Proc and IO objects from being included in Object#as_json result.
