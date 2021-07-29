@@ -60,12 +60,12 @@ describe Object do
     expect(object.as_json).to eq expected_hash
   end
 
-  it 'omits IO references' do
+  it "omits IO references" do
     object = Sample.new(name: "foo", value: $stdout)
     expect(object.as_json).to eq({"name" => "foo"})
   end
 
-  it 'omits Proc references' do
+  it "omits Proc references" do
     object = Sample.new(name: "foo", value: lambda { "bar" })
     expect(object.as_json).to eq({"name" => "foo"})
   end
