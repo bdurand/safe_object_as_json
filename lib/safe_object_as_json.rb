@@ -13,6 +13,9 @@ class Object
   # Converts any object to JSON by creating a hash out of it's instance variables.
   # If there is a circular reference within an object hierarchy, then duplicate
   # objects will be omitted in order to avoid infinite recursion.
+  #
+  # @param [Hash] options
+  # @return [Hash]
   def as_json(options = nil)
     if respond_to?(:to_hash)
       to_hash.as_json(options)
