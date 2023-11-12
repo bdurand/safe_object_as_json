@@ -1,8 +1,9 @@
+# Safe Object As JSON
+
 [![Continuous Integration](https://github.com/bdurand/safe_object_as_json/actions/workflows/continuous_integration.yml/badge.svg)](https://github.com/bdurand/safe_object_as_json/actions/workflows/continuous_integration.yml)
 [![Regression Test](https://github.com/bdurand/safe_object_as_json/actions/workflows/regression_test.yml/badge.svg)](https://github.com/bdurand/safe_object_as_json/actions/workflows/regression_test.yml)
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
-
-# Safe Object As JSON
+[![Gem Version](https://badge.fury.io/rb/safe_object_as_json.svg)](https://badge.fury.io/rb/safe_object_as_json)
 
 This gem provides an enhancement to the implementation for `as_json` on the core `Object` class in the ActiveSupport library. The implementation provided by ActiveSupport dumps the instance variables as name value pairs in a Hash. However, this is susceptible to infinite recursion when dumping an object that maintains references to other objects that then maintain back references to the original object.
 
